@@ -1,0 +1,180 @@
+/* 1. Typography & Colors */
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #f8fafc;
+    --text-color: #1e293b;
+    --accent-color: #3b82f6;
+    --card-bg-1: #ffffff;
+    --card-bg-2: #f1f5f9;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #f0f2f5;
+}
+
+h1 {
+    font-size: 40px;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+/* 2. Layout với Flexbox */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    margin-left: 20px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+/* 4. Hover & Interactions (Link) */
+nav a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* 3. Cards & Boxes */
+.card {
+    background: var(--card-bg-1);
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 24px;
+}
+
+.card:nth-child(even) {
+    background: var(--card-bg-2);
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
+}
+
+/* Skills list with Emoji bullets */
+.skill-list {
+    list-style: none;
+}
+.skill-list > li::before {
+    content: "🚀 ";
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Form styling */
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+label {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+input[type="text"], input[type="email"], textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: inherit;
+}
+
+/* 4. Hover & Interactions (Input & Button) */
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(37, 99, 235, 0.3);
+}
+
+.btn-submit {
+    background: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    background: #1d4ed8;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* 5. Responsive (Nâng cao) */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 0 10px;
+    }
+}
+
+@media (min-width: 1024px) {
+    /* Layout 3 cột cho kỹ năng nếu cần mở rộng */
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+}
